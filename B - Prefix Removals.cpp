@@ -6,18 +6,25 @@ using namespace std;
 int32_t main() {
     int t; cin >> t;
     while (t--) {
-        string s; cin >> s;
-        map<char, int> m;
-        for(char x : s) m[x]++;
-        int i = 0;
-        for(i; i < s.size() - 1; i++) {
-            m[s[i]]--;
-            if (m[s[i]] == 0) break;
+        map<int, int> m;
+        int n; cin >> n;
+        int a[n]; 
+        for(int &i : a) {
+            cin >> i;
+            m[i]++;
         }
-        for(i; i < s.size(); i++) {
-            cout << s[i];
-        }
-        cout << endl;
-    }
+        int count = 0;
+        for(pair<int, int> p : m) count += p.second - 1;
 
+        int move = 0;
+        for(int i : a) {
+            if (count == 0) break;
+            if (m[i] != 1) {
+                count--;
+            }
+            m[i]--;
+            move++;
+        }
+        cout << move << endl;
+    }
 }
