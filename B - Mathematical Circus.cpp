@@ -1,9 +1,11 @@
 #include <iostream>
 #include <algorithm>
 
+#define int long long
+
 using namespace std;
 
-int main() {
+int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
@@ -13,12 +15,7 @@ int main() {
         int c = k % 4;
             
         if (c == 0) {
-            if (n >= 4) {
-                cout << "YES" << endl;
-                for(int i = 4; i <= n; i += 4) {
-                    cout << i - 1 << " " << i << endl;
-                }
-            } else cout << "NO" << endl;
+            cout << "NO" << endl;
         }
         else if (c == 1) {
             cout << "YES" << endl;
